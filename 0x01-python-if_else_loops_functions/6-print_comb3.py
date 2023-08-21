@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-for i in range(0, 10):
-    for j in range(0, 10):
-        if i < j:
-            if i < 8:
-                print("{}{}, ".format(i, j), end="")
-            else:
-                    print("{}{}".format(i, j))
+for i in range(10):
+    for j in range(10):
+        if(i is 8 and j is 9):
+            print("{}".format(str(i) + str(j)))
+        elif(j > i):
+            print("{}".format(str(i) + str(j)) + ", ", end="")
