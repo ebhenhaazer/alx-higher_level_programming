@@ -16,4 +16,4 @@ my_list = load_json("add_item.json")
 
 for items in sys.argv[1:]:
     my_list.append(items)
-save_json(my_list, "add_item.json")
+save_file(my_list, "add_item.json")
