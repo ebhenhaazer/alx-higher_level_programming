@@ -1,0 +1,28 @@
+#!/usr/bin/python3
+"""
+14-main - Pascals Triangle
+"""
+
+
+def pascal_triangle(n):
+    """ Function that returns the pascal triangle
+
+    Args:
+        n: number of lines
+
+    Returns:
+        matrix: a matrix with the pascal triangle
+
+    """
+
+    if n <= 0:
+        return []
+
+    my_list = [[1]]
+    for count in range(1, n):
+        row = [1]
+        for elem in range(1, count):
+            row.append(my_list[count - 1][elem - 1] + my_list[count - 1][elem])
+        row.append(1)
+        my_list.append(row)
+    return my_list
