@@ -1,22 +1,20 @@
 #!/usr/bin/python3
 """
-Python scripte to list items from MySQL
+Script to list all states with a name starting with 'N'
+should take 3 arguments username, passwd and db name
 """
-
-import MySQLdb
-
-from sys import argv
 
 
 if __name__ == "__main__":
-    db = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
-                         passwd=argv[2], db=argv[3], charset="utf8")
-    c = db.cursor()
-    c.execute("SELECT * FROM states WHERE name LIKE '{:s}' ORDER BY\
-    id ASC".format(argv[4]))
-    for rows in c.fetchall():
-        if rows[1] == argv[4]:
-            print(rows)
-
-    c.close()
+    from sys import argv
+    import MySQLdb
+    db = MySQLdb.connect(user=argv[1], passwd=argv[2], db=argv[3])
+    curr = db.cursor()
+    curr.execute("SELECT * FROM states where name LIKE 'N%'\
+                 ORDER BY states.id ASC")
+    lst = curr.fetchall()
+    for r in lst:
+        if r[1][0] == 'N':
+            print(r)
+    curr.close()
     db.close()
