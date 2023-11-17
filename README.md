@@ -1,1 +1,1 @@
-If, elif, else loops in Python
+0x0E. SQL - More queries 
